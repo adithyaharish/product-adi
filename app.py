@@ -5,6 +5,7 @@ import csv
 import itertools
 import bz2
 import _pickle as cPickle
+import os
 
 
 app = Flask(__name__)
@@ -98,4 +99,5 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port = int(os.environ.get('PORT', 5000)))
+    
