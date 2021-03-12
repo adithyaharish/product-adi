@@ -6,20 +6,19 @@ import itertools
 import bz2
 import _pickle as cPickle
 import os
-
+from os  import getcwd
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adithya'
 
 
-data = bz2.BZ2File('smd.pbz2', 'rb')
-smd = cPickle.load(data)
+directory = getcwd()
 
-data = bz2.BZ2File('cosine.pbz2', 'rb')
-cosine_sim = cPickle.load(data)
+smd = cPickle.load(bz2.BZ2File(os.path.join(directory,'smd.pbz2'),'rb'))
 
-data = bz2.BZ2File('sig.pbz2', 'rb')
-sig = cPickle.load(data)
+cosine_sim = cPickle.load(bz2.BZ2File(os.path.join(directory,'cosine.pbz2'),'rb'))
+
+sig = cPickle.load(bz2.BZ2File(os.path.join(directory,'sig.pbz2'),'rb'))
 
 content=[]
 #read csv, and split on "," the line
