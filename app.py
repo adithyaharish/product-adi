@@ -1,10 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect,request   
+from flask import Flask, render_template,request   
 import pandas as pd
 import pickle
-import csv
 import itertools
-import bz2
-import _pickle as cPickle
 import os
 from os  import getcwd
 
