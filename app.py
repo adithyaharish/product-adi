@@ -4,13 +4,15 @@ import pickle
 import itertools
 import os
 from os  import getcwd
+import bz2
+import _pickle as cPickle
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adithya'
 
 
 directory = getcwd()
-'''
+
 smd = cPickle.load(bz2.BZ2File(os.path.join(directory,'smd.pbz2'),'rb'))
 
 cosine_sim = cPickle.load(bz2.BZ2File(os.path.join(directory,'cosine.pbz2'),'rb'))
@@ -23,7 +25,7 @@ smd = pickle.load(open(os.path.join(directory,'smd.pkl'),'rb'))
 cosine_sim = pickle.load(open(os.path.join(directory,'cosine.pkl'),'rb'))
 
 sig = pickle.load(open(os.path.join(directory,'sig.pkl'),'rb'))
-
+'''
 content=[]
 #read csv, and split on "," the line
 for index, row in smd.iterrows():
