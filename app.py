@@ -13,11 +13,11 @@ app.config['SECRET_KEY'] = 'adithya'
 
 directory = getcwd()
 
-smd = cPickle.load(bz2.BZ2File(os.path.join(directory,'smd.pbz2'),'rb'))
+smd = cPickle.load(bz2.BZ2File('smd.pbz2','rb'))
 
-cosine_sim = cPickle.load(bz2.BZ2File(os.path.join(directory,'cosine.pbz2'),'rb'))
+cosine_sim = cPickle.load(bz2.BZ2File('cosine.pbz2','rb'))
 
-sig = cPickle.load(bz2.BZ2File(os.path.join(directory,'sig.pbz2'),'rb'))
+sig = cPickle.load(bz2.BZ2File('sig.pbz2','rb'))
 '''
 
 smd = pickle.load(open(os.path.join(directory,'smd.pkl'),'rb'))
