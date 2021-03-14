@@ -12,13 +12,35 @@ app.config['SECRET_KEY'] = 'adithya'
 
 
 directory = getcwd()
-
-smd = cPickle.load(bz2.BZ2File('smd.pbz2','rb'))
-
-cosine_sim = cPickle.load(bz2.BZ2File('cosine.pbz2','rb'))
-
-sig = cPickle.load(bz2.BZ2File('sig.pbz2','rb'))
+with open("smd.pkl", "rb") as f:
+    while True:
+        try:
+            smd=(pickle.load(f))
+        except EOFError:
+            break
+        
+        
+        
+with open("cosine.pkl", "rb") as f:
+    while True:
+        try:
+            cosine_sim=(pickle.load(f))
+        except EOFError:
+            break
+        
+with open("sig.pkl", "rb") as f:
+    while True:
+        try:
+            sig=(pickle.load(f))
+        except EOFError:
+            break
 '''
+smd = cPickle.load(bz2.BZ2File(os.path.join(directory,'smd.pbz2'),'rb'))
+
+cosine_sim = cPickle.load(bz2.BZ2File(os.path.join(directory,'cosine.pbz2'),'rb'))
+
+sig = cPickle.load(bz2.BZ2File(os.path.join(directory,'sig.pbz2'),'rb'))
+
 
 smd = pickle.load(open(os.path.join(directory,'smd.pkl'),'rb'))
 
@@ -26,6 +48,7 @@ cosine_sim = pickle.load(open(os.path.join(directory,'cosine.pkl'),'rb'))
 
 sig = pickle.load(open(os.path.join(directory,'sig.pkl'),'rb'))
 '''
+
 content=[]
 #read csv, and split on "," the line
 for index, row in smd.iterrows():
@@ -102,6 +125,7 @@ def home():
         
         return render_template('index.html', content=content2)
 
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
+    
